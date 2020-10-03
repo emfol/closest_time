@@ -4,13 +4,14 @@
 
 int main(int argc, char **argv) {
   if (argc > 1) {
-    char target[TIMEBUFSZ];
-    closest_time(argv[1], target);
-    if (strlen(target) > 0) {
-      puts(target);
+    char dst[TIMEBUFSZ];
+    int cnt = closest_time(argv[1], dst);
+    if (cnt > 0) {
+      puts(dst);
+      fprintf(stderr, "count: %d\n", cnt);
       return 0;
-    } else fputs("Bad input...\n", stderr);
+    }
   }
+  fputs("Bad input... Expected time in range [00:00, 23:59]\n", stderr);
   return 1;
 }
-
