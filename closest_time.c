@@ -78,7 +78,7 @@ static void each(struct context *ctx, char *arr) {
 }
 
 int closest_time(const char *src, char *dst) {
-  struct context ctx = { 0 };
+  struct context ctx;
   char set[5] = { 0 }, arr[5] = { 0 };
   int h, m, c = 0;
 
